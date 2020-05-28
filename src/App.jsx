@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Jumbotron, Container, Row, Col } from 'react-bootstrap';
 import './App.scss';
-// eslint-disable-next-line
 import meals from './meals';
 import Mealbox from './components/Mealbox';
 
@@ -10,16 +10,26 @@ class App extends Component {
     this.state = {
       meals: [...meals]
     };
-    console.log(this.state.meals);
   }
 
   render() {
     return (
-      <div>
-        {this.state.meals.map(meal => (
-          <Mealbox key={meal.name} {...meal} />
-        ))}
-      </div>
+      <Container>
+        <Jumbotron>
+          <h1 className="header">IronNutrition</h1>
+        </Jumbotron>
+        <Row>
+          <Col >
+            {this.state.meals.map(meal => (
+              <Mealbox key={meal.name} {...meal} />
+            ))}
+          </Col>
+          <Col>
+             <h3>something</h3>
+
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
